@@ -8,14 +8,14 @@
 
 int _printf(const char *format, ...)
 {
-	int totalchar = 0, i, count = 0;
+	int totalchar = 0, count;
 	char ch, *str;
 	va_list var;
 
 	if (format == NULL)
 		return (-1);
 	va_start(var, format);
-	while (*format)
+	for (; *format != '\0'; format++)
 	{
 		if (*format != '%')
 		{
@@ -28,22 +28,24 @@ int _printf(const char *format, ...)
 			if (*format == '\0')
 				break;
 			if (*format == 'c')
+			{
 				ch = va_arg(var, int);
 				write(1, &ch, 1);
 				totalchar++;
+			}
 			if (*format == 's')
 			{
 				str = va_arg(var, char *);
-				for (i = 0; str[i] != '\0'; i++)
-					count++;
+				count = strlen(str);
 				write(1, str, count);
 				totalchar = totalchar + count;
 			}
 			if (*format == '%')
+			{
 				write(1, format, 1);
 				totalchar++;
+			}
 		}
-		format++;
 	}
 	va_end(var);
 	return (totalchar);
