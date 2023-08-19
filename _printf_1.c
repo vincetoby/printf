@@ -41,10 +41,7 @@ int _printf(const char *format, ...)
 				totalchar = totalchar + count;
 			}
 			if (*format == '%')
-			{
-				write(1, format, 1);
-				totalchar++;
-			}
+				totalchar += write(1, format++, 1); /* i tried to shorten the code */
 		}
 	}
 	va_end(var);
