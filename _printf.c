@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _printf: prints
+ * _printf - prints characters, symbols, strings, etc.
  * @format: char to print
  * Return: integer
  */

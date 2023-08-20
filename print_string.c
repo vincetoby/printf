@@ -14,13 +14,10 @@ int print_string(va_list var)
 	str = va_arg(var, char *);
 	if (str == NULL)
 		return (-1);
-	else
+	len = strlen(str);
+	for (i = 0; i < len; i++)
 	{
-		len = strlen(str);
-		for (i = 0; i < len; i++)
-		{
-			_putchar(str[i]);
-		}
+		_putchar(str[i]);
 	}
 	return (len);
 }

@@ -45,15 +45,15 @@ int print_integer(int num)
 
 /**
  * print_int - prints integers as printf
- * @format: string
+ * @var: format string
  * Return: an integer
  */
 
 /* my printf function */
 int print_int(va_list var)
 {
-	int num, count = 0;
-	
+	int num, count;
+
 	num = va_arg(var, int);
 	count = print_integer(num);
 	return (count);

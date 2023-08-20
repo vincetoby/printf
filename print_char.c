@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printf_char - print a character.
+ * print_char - prints character to sdout.
  * @var: argument.
  * Return: 1 on success.
  */
