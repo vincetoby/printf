@@ -2,12 +2,12 @@
 
 /**
  * print_sym - prints the symbol "%".
- * Return: 1.
+ *
+ * Return: 1 (Success)
  */
 
-int print_sym()
+int print_sym(void)
 {
-	char c = '%';
-	_putchar(c);
+	_putchar('%');
 	return (1);
 }
