@@ -1,84 +1,40 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "main.h"
 
 /**
- * print_binary - Prints unsigned (int) in binary.
- * @num: arguments passed to function.
- *
- * Description: This function takes an unsigned integer as input and prints
- * its binary representation.
+ * print_binary - Print the binaryof a number.
+ * @var: Arguments.
+ * Return: digit count.
  */
 
-void print_binary(unsigned int num)
+int print_binary(va_list var)
 {
+	int flagbit = 0; /* Flag to track if a non-zero digit has been encountered */
+	int digitCount = 0; /* Counter for printed digits */
+	int i, bitMask = 1, binaryDigit;
 
-/**
- * my_printf - Custom printf function with binary conversion support.
- * @format: The format string containing conversion specifiers.
- * @...: Additional arguments to be formatted and printed.
- *
- */
+	/* Extract the number from the arguments */
+	unsigned int num = va_arg(var, unsigned int);
+	unsigned int currentBit;
 
-	if (num > 1)
+	for (i = 0; i < 32; i++) /* iterates through bit */
 	{
-		print_binary(num / 2);
-	}
-	putchar('0' + num % 2);
-}
-
-int my_printf(const char *format, ...)
-{
-	va_list args;
-
-	va_start(args, format);
-
-	int count = 0;
-
-	for (const char *c = format; *c != '\0'; c++)
-	{
-		if (*c == '%')
+		currentBit = ((bitMask << (31 - i)) & num);
+		/* Calculates the value of the current bit using a bitmask */
+		if (currentBit >> (31 - i)) /*checks if current bit is not non-zero */
+			flagbit = 1; /* 1 means non-zero, 0 otherwise */
+		if (flagbit != 0)
 		{
-			c++;
-			/* Handle the custom conversion specifier %b */
-		if (*c == 'b')
-		{
-			unsigned int num = va_arg(args, unsigned int);
-
-			print_binary(num);
-			count += sizeof(unsigned int) * 8;  /* Number of binary digits */
-		}
-		else
-		{
-			putchar('%');  /* Print % character */
-			count++;
-			putchar(*c);   /* Print the character following % */
-			count++;
-		}
-		}
-		else
-		{
-			putchar(*c);
-			count++;
+			/* Calculate the individual binary digit (0 or 1) */
+			binaryDigit = currentBit >> (31 - i);
+			/* print the binary dgits as a character ('0' or '1') */
+			_putchar(binaryDigit + '0');
+			digitCount++; /* Increment the count */
 		}
 	}
-
-	va_end(args);
-	return (count);
-}
-
-/**
- * main - Entry point of the program.
- *
- * Description: The main function serves as the entry point of the program.
- *
- * Returns: Always 0 (Success).
- */
-
-int main(void)
-{
-	unsigned int value = 42;
-
-	my_printf("Binary representation of %u: %b\n", value, value);
-	return (0);
+	if (!digitCount) /* if it is zero */
+	{
+		_putchar('0');
+		digitCount++;
+	}
+	return (digitCount);
 }

@@ -8,13 +8,15 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j, len = 0;
+	int i, j, count = 0;
 	va_list args;
 
 	func arr[] = {
-	{"%d", print_int}, {"%i", print_int},
-	{"%c", print_char}, {"%s", print_string},
-	{"%%", print_sym}
+	{"%d", print_int}, {"%i", print_int}, {"%X", print_HEXADECIMAL},
+	{"%c", print_char}, {"%s", print_string}, {"%x", print_hexadecimal},
+	{"%%", print_sym}, {"%b", print_binary}, {"%o", print_octal},
+	{"%u", print_unsigned_int}, {"%p", print_p}, {"%S", custom_s},
+	{"%r", print_reverse}, {"%R", print_rot13}
 	};
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -25,23 +27,23 @@ int _printf(const char *format, ...)
 	for (i = 0; format[i] != '\0';)
 	{
 		j = 0;
-		while (j < 5)  /* Number of elements in the arr array */
+		while (j < 14)  /* Number of elements in the arr array */
 		{
 			if (format[i] == arr[j].s[0] && format[i + 1] == arr[j].s[1])
 			{
-				len += arr[j].ptr(args);
+				count += arr[j].ptr(args);
 				i = i + 2;
 				break;
 			}
 			j++;
 		}
-		if (j == 5)
+		if (j == 14)
 		{
 			_putchar(format[i]);
-			len++;
+			count++;
 			i++;
 		}
 	}
 	va_end(args);
-	return (len);
+	return (count);
 }
