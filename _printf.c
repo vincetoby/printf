@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	{"%c", print_char}, {"%s", print_string}, {"%x", print_hexadecimal},
 	{"%%", print_sym}, {"%b", print_binary}, {"%o", print_octal},
 	{"%u", print_unsigned_int}, {"%p", print_p}, {"%S", custom_s},
-	{"%r", print_reverse}, {"%R", print_rot13}
+	{"%k", print_reverse}, {"%R", print_rot13}
 	};
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
