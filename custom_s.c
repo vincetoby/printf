@@ -2,7 +2,7 @@
 
 /**
  * custom_s - customized printing of string.
- * @var: argument
+ * @var: argument passed to function.
  * Return: count.
  */
 
