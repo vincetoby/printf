@@ -2,7 +2,7 @@
 
 /**
  * print_unsigned - prints unsigned integer
- * @var: argument to print
+ * @var: argument passed to print
  * Return: count
  */
 

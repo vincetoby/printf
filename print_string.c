@@ -11,6 +11,7 @@ int print_string(va_list var)
 	char *str;
 	int i, len;
 
+	/* initialization of string to char */
 	str = va_arg(var, char *);
 	if (str == NULL)
 		return (-1);
