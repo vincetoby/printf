@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * print_rot13 - prints str to ROT13 place into buffer
- * @var: arguments
- * Return: count
+ * print_rot13 - prints str to ROT13 place into buffer.
+ * @var: arguments passed t0 print.
+ * Return: count on Success.
  */
 
 int print_rot13(va_list var)
 {
-	int i, j, count = 0;/*count keeps track of strlength*/
+	int i, j, count = 0; /*count keeps track of strlength*/
 
 	char *num = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
 	char *rotnum = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
