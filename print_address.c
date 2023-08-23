@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * print_p - prints Memory address
- * @var: argument
- * Return: count
+ * print_p - prints Memory address.
+ * @var: argument to function.
+ * Return: count on Success.
  */
 
 int print_p(va_list var)
