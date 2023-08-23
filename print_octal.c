@@ -2,8 +2,8 @@
 
 /**
  * print_octal - prints an octal number.
- * @var: arguments.
- * Return: count.
+ * @var: arguments passed to print.
+ * Return: count on Success.
  */
 int print_octal(va_list var)
 {
@@ -24,10 +24,10 @@ int print_octal(va_list var)
 
 	for (i = 0; i < count; i++)
 	{
-		arr[i] = temp % 8; /* gets the remainder */
+		arr[i] = temp % 8; /* array gets the remainder */
 		temp = temp / 8; /* gets the result of division */
 	}
-	for (i = count - 1; i >= 0; i--) /* from last index to first */
+	for (i = count - 1; i >= 0; i--) /* reverse index */
 	{
 		_putchar(arr[i] + '0'); /* print it as char */
 	}
