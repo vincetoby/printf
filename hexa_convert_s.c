@@ -17,7 +17,7 @@ int hexa_convert_s(unsigned int numb)
 		numb = numb / 16;
 		count++;
 	}
-	count++; /* increment because count doesnt get the num less than 16*/
+	count++; /* increment count as num is less than 16*/
 	arr = malloc(sizeof(int) * count);
 	if (arr == NULL)
 		return (-1);
