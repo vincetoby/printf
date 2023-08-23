@@ -1,15 +1,15 @@
-READ ME
+# READ ME
 
 This readme file explains this printf repository
 
-INTRODUCTION 
+# INTRODUCTION 
 
 This is a team project by Vincent and Tobi is a custom made printf function written 100% in C, called _printf. 
 The function is optimized to take various inputs and optional arguments exactly the way standard library function printf works. In this case we can say we built our own printf. This project is the first team project for cohort 17, ALX Software Engineering program. 
 
 Tasks that directed us are listed below:
 
-## FILES
+## **FILES**
 
 1. **_printf_1.c:**
 
