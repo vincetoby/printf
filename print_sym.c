@@ -8,6 +8,8 @@
 
 int print_sym(void)
 {
-	_putchar('%');
+	char a = '%';
+
+	write(1, &a, 1);
 	return (1);
 }

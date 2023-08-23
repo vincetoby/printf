@@ -17,7 +17,7 @@ int print_string(va_list var)
 	len = strlen(str);
 	for (i = 0; i < len; i++)
 	{
-		_putchar(str[i]);
+		write(1, &str[i], 1);
 	}
 	return (len);
 }

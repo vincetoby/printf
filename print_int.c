@@ -10,12 +10,12 @@ int print_integer(int num)
 {
 	int count = 0, i, j;
 	int temp = num, digit = 0;
-	char *buffer;
+	char *buffer, a = '-'; 
 
 	/* handles negative numbers */
 	if (num < 0)
 	{
-		_putchar('-');
+		write(1, &a, 1);
 		count++;
 		num = -num;
 	}
@@ -36,7 +36,7 @@ int print_integer(int num)
 	}
 	for (j = 0; j < digit; j++)
 	{
-		_putchar(buffer[j]);
+		write(1, &buffer[j], 1);
 		count++;
 	}
 	free(buffer);
